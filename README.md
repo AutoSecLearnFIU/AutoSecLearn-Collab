@@ -6,6 +6,20 @@ Built for **COP4655 -- Mobile Application Development** at **Florida Internation
 
 <br>
 
+## Team Information
+
+### Team Members
+
+| Name | GitHub | PID | Email |
+|---|---|---:|---|
+| Bryan Puckett | BryanPuckettGH | 910116 | bpuck002@fiu.edu |
+| Giovanna Curry | gcurr011 | 6483095 | gcurr011@fiu.edu |
+| Remberto Silva | rembertoS | 6441494 | rsilv108@fiu.edu |
+| Meagan Alfaro | meaganalfaro | 6288760 | malfa056@fiu.edu |
+| Alec Rivera | Alec-Rivera | 6234631 | arive406@fiu.edu |
+
+<br>
+
 ## Project Overview
 
 The app has **5 tabs**:
