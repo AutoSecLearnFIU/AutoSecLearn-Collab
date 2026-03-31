@@ -63,6 +63,23 @@ AutoSecLearn/
 | Xcode 16 | IDE |
 | iOS 18+ | Target platform |
 
+
+
+Group Milestone 2
+
+### Sprint Planning
+GitHub Milestones created
+GitHub Project Board created
+GitHub Issues created from user features
+Issues assigned to team members and added to project board
+
+### Completed User Stories
+Bryan - Home tab displays app info and team listing
+Giovanna - Worked on Home Page
+Remberto - Finished The first module 
+Meagan - Finished the module 1 quiz 
+Alec - Finished Module 1 flashcards
+
 <br>
 
 ---
