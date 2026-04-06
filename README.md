@@ -158,6 +158,24 @@ AutoSecLearn is an iOS educational app that teaches network infrastructure and c
 | cost | String | Exam cost |
 | prerequisites | [String] | Required prerequisites |
 
+**Module**
+| Property | Type | Description |
+|---|---|---|
+| name | String | Module title |
+| questions | [Question] | Array of questions in the module |
+
+**Question**
+| Property | Type | Description |
+|---|---|---|
+| text | String | The question text |
+| options | [AnswerOption] | Array of answer options |
+
+**AnswerOption**
+| Property | Type | Description |
+|---|---|---|
+| answer | String | The answer text |
+| isCorrect | Bool | Whether this is the correct answer |
+
 ### Networking
 
 - This app uses local data only — no network requests. All module content, quiz questions, and certification data are bundled within the app.
