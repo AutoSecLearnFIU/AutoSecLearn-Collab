@@ -11,10 +11,12 @@ import SwiftUI
 struct ExamView: View {
     
     let module: Module
+    let gradient: LinearGradient
     @StateObject private var viewModel: ExamViewModel
 
-    init(module: Module) {
+    init(module: Module, gradient: LinearGradient) {
         self.module = module
+        self.gradient = gradient
         _viewModel = StateObject(wrappedValue: ExamViewModel(questions: module.questions))
     }
     
@@ -44,6 +46,7 @@ struct ExamView: View {
                             QuestionCard(
                                 question: viewModel.questions[qIndex],
                                 qIndex: qIndex,
+                                gradient: gradient,
                                 viewModel: viewModel
                             )
                         }
@@ -55,10 +58,11 @@ struct ExamView: View {
                         .foregroundStyle(.white)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, AppTheme.paddingMedium)
-                        .background(AppTheme.primaryGradient)
+                        .background(gradient)
                         .clipShape(RoundedRectangle(cornerRadius: AppTheme.cornerRadius))
                         .padding(.horizontal, AppTheme.paddingMedium)
                         .padding(.bottom, AppTheme.paddingLarge)
+                        
                     }
                     .padding(AppTheme.paddingMedium)
                 }
@@ -111,6 +115,14 @@ struct ExamView: View {
         ]
     )
     NavigationStack {
-        ExamView(module: sampleModule)
+            ExamView(
+                module: sampleModule,
+                gradient: LinearGradient(
+                    colors: [Color.teal, Color.blue],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+            )
+        }
     }
-}
+

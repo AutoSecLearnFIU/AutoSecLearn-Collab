@@ -11,6 +11,7 @@ import SwiftUI
 struct QuestionCard: View {
     let question: Questions
     let qIndex: Int
+    let gradient: LinearGradient
     @ObservedObject var viewModel: ExamViewModel
     
     var body: some View {
@@ -23,7 +24,7 @@ struct QuestionCard: View {
                     .foregroundStyle(.white)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
-                    .background(AppTheme.primaryGradient)
+                    .background(gradient)
                     .clipShape(Capsule())
                 
                 Text(question.text)
@@ -50,7 +51,7 @@ struct QuestionCard: View {
                             Circle()
                                 .strokeBorder(isSelected ? Color.clear : AppTheme.border, lineWidth: 1.5)
                                 .background(
-                                    Circle().fill(isSelected ? AnyShapeStyle(AppTheme.primaryGradient) : AnyShapeStyle(Color.clear))
+                                    Circle().fill(isSelected ? AnyShapeStyle(gradient) : AnyShapeStyle(Color.clear))
                                 )
                                 .frame(width: 22, height: 22)
                             

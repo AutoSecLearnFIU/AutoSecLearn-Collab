@@ -9,6 +9,15 @@ import Foundation
 import SwiftUI
 
 struct ModuleSelectionView: View {
+    // Styling
+    let moduleGradients: [LinearGradient] = [
+        LinearGradient(colors: [Color("accentTeal"), Color("accentBlue")], startPoint: .topLeading, endPoint: .bottomTrailing),
+        LinearGradient(colors: [Color("accentIndigo"), Color("accentPurple")], startPoint: .topLeading, endPoint: .bottomTrailing),
+        LinearGradient(colors: [.green, .teal], startPoint: .topLeading, endPoint: .bottomTrailing),
+        LinearGradient(colors: [.pink, .purple], startPoint: .topLeading, endPoint: .bottomTrailing),
+        LinearGradient(colors: [.red, .orange], startPoint: .topLeading, endPoint: .bottomTrailing)
+    ]
+    
     var body: some View {
         ScrollView {
             VStack(spacing: AppTheme.paddingMedium) {
@@ -30,43 +39,43 @@ struct ModuleSelectionView: View {
                 ForEach(QuestionStorage.allModules.indices, id: \.self) { index in
                     let module = QuestionStorage.allModules[index]
                     
-                    NavigationLink(destination: ExamView(module: module)) {
+                    NavigationLink(destination: ExamView(module: module, gradient: moduleGradients[index])) {
                         HStack(spacing: AppTheme.paddingMedium) {
                             
                             // Module number badge
                             ZStack {
                                 RoundedRectangle(cornerRadius: 10)
-                                    .fill(AppTheme.primaryGradient)
+                                    .fill(.white.opacity(0.3))
                                     .frame(width: 44, height: 44)
                                 Text("\(index + 1)")
                                     .font(AppTheme.headline)
                                     .foregroundStyle(.white)
                             }
                             
-                            // Module info
                             VStack(alignment: .leading, spacing: 4) {
                                 Text(module.name)
                                     .font(AppTheme.headline)
-                                    .foregroundStyle(.primary)
+                                    .foregroundStyle(.white)
                                     .multilineTextAlignment(.leading)
                                 Text("\(module.questions.count) questions")
                                     .font(AppTheme.caption)
-                                    .foregroundStyle(.secondary)
+                                    .foregroundStyle(.white.opacity(0.8))
                             }
                             
                             Spacer()
                             
                             Image(systemName: "chevron.right")
-                                .foregroundStyle(.secondary)
+                                .foregroundStyle(.white.opacity(0.8))
                                 .font(.caption)
                         }
                         .padding(AppTheme.paddingMedium)
-                        .background(Color(.systemBackground))
+                        .background(moduleGradients[index])
                         .clipShape(RoundedRectangle(cornerRadius: AppTheme.cornerRadius))
-                        .shadow(color: .black.opacity(0.07), radius: 6, x: 0, y: 2)
+                        .shadow(color: .black.opacity(0.15), radius: 8, x: 0, y: 4)
                     }
+                    .padding(.horizontal, AppTheme.paddingMedium)
                 }
-                .padding(.horizontal, AppTheme.paddingMedium)
+                
             }
             .padding(.bottom, AppTheme.paddingLarge)
         }
